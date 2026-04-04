@@ -93,7 +93,7 @@ variable "containers" {
 }
 
 # Life cycle policy
-variable "enable_lifecycle_policy {
+variable "enable_lifecycle_policy" {
     description = "Enable blob lifecycle management policy."
     type = bool
     default = false

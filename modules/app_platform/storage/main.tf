@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "this"{
 # Storage account
 resource "azurerm_storage_account" "this" {
     name = var.storage_account_name
-    resource_group_name = azurerm_resource_group.this.name.
+    resource_group_name = azurerm_resource_group.this.name
     location = var.location
     account_tier = var.account_tier
     account_replication_type = var.account_replication_type
@@ -60,11 +60,11 @@ resource "azurerm_storage_management_policy" "this" {
 
         actions {
             base_blob {
-                delete_after_days_since_modification_greater_than  = var.lifecycle_delete_after_days
+                delete_after_days_since_modification_greater_than  = var.lifecycle_deletion_after_days
             }
 
             snapshot {
-                delete_after_days_since_creation_greater_than = var.lifecycle_delete_after_days
+                delete_after_days_since_creation_greater_than = var.lifecycle_deletion_after_days
             }
         }
     }
@@ -80,23 +80,19 @@ resource "azurerm_monitor_diagnostic_setting" "blob" {
     count  = var.log_analytics_workspace_id != null ? 1:0
 
     name = "diag-${var.storage_account_name}-blob"
-    tagert-resource_id = "${azurerm_storage_account.this.id}/blobService/default"
+    target_resource_id = "${azurerm_storage_account.this.id}/blobService/default"
     log_analytics_workspace_id = var.log_analytics_workspace_id
 
     enabled_log{
         category = "StorageRead"
     }
-
-        enabled_log{
+    enabled_log{
         category = "StorageWrite"
     }
-
-        enabled_log{
+    enabled_log{
         category = "StorageDelete"
     }
-
-        enabled_log{
+    enabled_log{
         category = "Transaction"
-        enabled = true
     }
 }

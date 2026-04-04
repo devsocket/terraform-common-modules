@@ -3,7 +3,7 @@ output "acr_id" {
     value = azurerm_container_registry.this.id
 }
 
-ouput "acr_name" {
+output "acr_name" {
     description = "Name of ACR, used in AKS node pool configurations and CI/CD pipelines."
     value = azurerm_container_registry.this.name
 }
