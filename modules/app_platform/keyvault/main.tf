@@ -14,9 +14,9 @@ resource "azurerm_key_vault" "this" {
 
     #RBAC mode - access policies are disabled entirely
     # Access is manged via azurerm_role_assignment resources included
-    enable_rbac_athorization = true
-
-    soft_delete_protection_days = var.soft_delete_protection_days
+    enable_rbac_authorization = true
+    
+    soft_delete_retention_days = var.soft_delete_protection_days
     purge_protection_enabled = var.purge_protection_enabled
     public_network_access_enabled  = var.public_network_access_enabled
 

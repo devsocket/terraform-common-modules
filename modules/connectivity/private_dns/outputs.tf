@@ -21,7 +21,7 @@ output "resource_group_name" {
 
 # Vnet links
 
-ouput "hub_vnet_link_ids" {
+output "hub_vnet_link_ids" {
     description = "Map of zone name to hub VNet link resource ID."
     value = {
         for zone_name, link in azurerm_private_dns_zone_virtual_network_link.hub :

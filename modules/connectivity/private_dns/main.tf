@@ -24,7 +24,7 @@ resource "azurerm_private_dnz_zone" "this" {
 # Link name pattern: vnetlink-hub-privatelink.azurecr.io
 
 resource "azurerm_private_dns_zone_virtual_network_link" "hub" {
-    for_each = toset(var.dnz_zones)
+    for_each = toset(var.dns_zones)
 
     name = "${var.hub_vnet_link_name}-${each.key}"
     resource_group_name = var.resource_group.this.name
@@ -45,7 +45,7 @@ locals {
     # Build a flatmap of all zone+spoke combinations
     # Key format : "<spoke_key>-<zone_name>", e.g: "dev-privatelink.azurecr.io"
     spoke_zone_links = {
-        for_each pair in setproduct(keys(var.spoke_vnet_links), var.dns_zones) :
+        for pair in setproduct(keys(var.spoke_vnet_links), var.dns_zones) :
         "${pair[0]}-${pair[1]}" => {
             spoke_key = pair[0]
             zone_name = pair[1]
