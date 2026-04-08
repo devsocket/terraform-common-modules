@@ -19,7 +19,7 @@ variable "key_vault_name" {
     type = string
     
     validation {
-        condition = can(regex("^[a-z0-9]{5,50}$", var.acr_name))
+        condition = can(regex("^[a-z0-9]{5,50}$", var.key_vault_name))
         error_message = "Invalid Key Vault Name. should be lower case alpha numeric and between 5 to 50 chars."
     }
 }
