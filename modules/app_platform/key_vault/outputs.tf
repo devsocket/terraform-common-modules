@@ -1,6 +1,6 @@
 output "resource_group_name" {
-    description = "Resource group where Key Vault was created."
-    value       = azurerm_resource_group.this.name
+  description = "Resource group where Key Vault was created."
+  value       = azurerm_resource_group.this.name
 }
 
 output "key_vault_id" {
