@@ -65,7 +65,7 @@ variable "https_traffic_only_enabled" {
 variable "min_tls_version" {
   description = "Minimum TLS version. TLS1.2 is the current recommended version."
   type        = string
-  default     = "TLS1.2"
+  default     = "TLS1_2"
 }
 
 variable "public_network_access_enabled" {

@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "this" {
 # for_each over the DNS_ZONES list
 #toset() converts the list to a set - required by for_each
 # each.key and each.value are both the zone name e.g "privatelink.azurecr.io"
-resource "azurerm_private_dnz_zone" "this" {
+resource "azurerm_private_dns_zone" "this" {
   for_each = toset(var.dns_zones)
 
   name                = each.key
