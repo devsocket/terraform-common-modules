@@ -41,7 +41,7 @@ resource "azurerm_route_table" "this" {
   resource_group_name           = azurerm_resource_group.this.name
   location                      = azurerm_resource_group.this.location
   tags                          = var.tags
-  disable_bgp_route_propagation = var.disable_bgp_route_propogation
+  bgp_route_propagation_enabled = var.disable_bgp_route_propogation
 }
 
 # Associate route table to subnets

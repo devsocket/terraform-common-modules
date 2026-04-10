@@ -27,7 +27,7 @@ resource "azurerm_storage_account" "this" {
     }
 
     #Enabled versioning for blob changes tracking
-    versioning_enabled = false
+    versioning_enabled = true
   }
 
   tags = var.tags

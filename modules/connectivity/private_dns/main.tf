@@ -27,7 +27,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "hub" {
   for_each = toset(var.dns_zones)
 
   name                  = "${var.hub_vnet_link_name}-${each.key}"
-  resource_group_name   = azurerm_private_dns_zone.this.name
+  resource_group_name   = azurerm_resource_group.this.name
   private_dns_zone_name = azurerm_private_dns_zone.this[each.key].name
   virtual_network_id    = var.hub_vnet_id
   registration_enabled  = var.enable_auto_registration
