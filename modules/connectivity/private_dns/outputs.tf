@@ -16,7 +16,7 @@ output "zone_names" {
 
 output "resource_group_name" {
   description = "Resource groups where DNS zones are created"
-  value       = azurerm_resource_group_name.this.name
+  value       = azurerm_resource_group.this.name
 }
 
 # Vnet links

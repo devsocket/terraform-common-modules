@@ -13,7 +13,7 @@ variable "storage_account_name" {
   description = "Storage account name to interact with. should be unique globally. 3-24 chars, lowercase alpha numerics only."
 
   validation {
-    condition     = can(regex("^[a-z0-9]{3-24}$", var.storage_account_name))
+    condition     = can(regex("^[a-z0-9]{3,24}$", var.storage_account_name))
     error_message = "Storage account must be of 3-35 lowercase alpha numerics only."
   }
 }
@@ -23,7 +23,7 @@ variable "account_tier" {
   type        = string
 
   validation {
-    condition     = contains(["Standard, Premium"], var.account_tier)
+    condition     = contains(["Standard", "Premium"], var.account_tier)
     error_message = "Invalid account tier. allowed Standard or Premium only."
   }
 
