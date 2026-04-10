@@ -23,7 +23,7 @@ variable "account_tier" {
   type        = string
 
   validation {
-    condition     = contains(["Standard, Premium"], var.account_tier)
+    condition     = contains(["Standard", "Premium"], var.account_tier)
     error_message = "Invalid account tier. allowed Standard or Premium only."
   }
 
