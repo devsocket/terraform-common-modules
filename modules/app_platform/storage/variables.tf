@@ -39,9 +39,9 @@ variable "account_replication_type" {
 }
 
 variable "account_kind" {
-  description = "Storage account kind. StandardV2 is recommended for general purposes."
+  description = "Storage account kind. StorageV2 is recommended for general purposes."
   type        = string
-  default     = "StandardV2"
+  default     = "StorageV2"
 }
 
 variable "access_tier" {
