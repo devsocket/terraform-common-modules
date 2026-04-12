@@ -92,7 +92,7 @@ resource "azurerm_monitor_diagnostic_setting" "blob" {
   enabled_log {
     category = "StorageDelete"
   }
-  enabled_log {
-    category = "Transaction"
-  }
+  # enabled_log {
+  #   category = "Transaction"
+  # }
 }
