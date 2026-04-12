@@ -80,7 +80,7 @@ resource "azurerm_monitor_diagnostic_setting" "blob" {
   count = var.log_analytics_workspace_id != null ? 1 : 0
 
   name                       = "diag-${var.storage_account_name}-blob"
-  target_resource_id         = "${azurerm_storage_account.this.id}/blobService/default"
+  target_resource_id         = "${azurerm_storage_account.this.id}/blobServices/default"
   log_analytics_workspace_id = var.log_analytics_workspace_id
 
   enabled_log {
