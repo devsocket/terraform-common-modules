@@ -111,6 +111,10 @@ resource "azurerm_application_gateway" "this" {
     backend_http_settings_name = "appgw-backend-http-settings"
     priority                   = 100
   }
+  ssl_policy {
+      policy_type = "Predefined"
+      policy_name = "AppGwSslPolicy20220101"
+  }
 
   # Lifecycle ignore — AGIC continuously modifies listeners, rules and pools
   # Without this, every terraform plan would show changes made by AGIC
